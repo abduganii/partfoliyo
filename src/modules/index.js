@@ -1,0 +1,49 @@
+const express = require('express')
+const router = express.Router()
+
+const services = require('./services/services')
+const ourTeam = require('./ourTeam/ourTeam')
+const contactUs = require('./contactUs/contactUs')
+const portfoliocategories = require('./portfoliocategories/ortfoliocategories')
+const partners = require('./partners/partners')
+const portfolio = require('./portfolio/portfolio')
+
+const login = require('./login/login')
+const auth = require('../meddlewares/auth')
+
+router
+    //login 
+    .post('/login', login)
+    //services
+    .get('/services',services.GET)
+    .post('/newService',auth,services.POST)
+    .put('/updateService',auth,services.PUT)
+    .delete('/deleteService',auth,services.DELETE)
+    //ourTeam 
+    .get('/ourTeam',ourTeam.GET)
+    .post('/newTeamMember',auth,ourTeam.POST)
+    .put('/updateTeamMember',auth,ourTeam.PUT)
+    .delete('/deleteTeamMember',auth,ourTeam.DELETE)
+    //contactUs
+    .get("/allMessage",contactUs.GET)
+    .post("/newMessage",contactUs.POST)
+    .delete("/deleteMessage", auth, contactUs.DELETE)
+    //partners
+    .get('/partners', partners.GET)
+    .post('/newpartners',auth, partners.POST)
+    .put('/updatepartners',auth, partners.PUT)
+    .delete('/deletepartners',auth, partners.DELETE)
+    //portfolioCategories
+    .get('/portfoliocategories',portfoliocategories.GET)
+    .post('/newPortfoliocategories',auth, portfoliocategories.POST)
+    .put('/updatePortfoliocategories',auth, portfoliocategories.PUT)
+    .delete('/deletePortfoliocategories',auth, portfoliocategories.DELETE)
+    //portfolio
+    .get('/portfolio',portfolio.GET)
+    .post('/newPortfolio',auth,portfolio.POST)
+    .put('/updatePortfolio',auth,portfolio.PUT)
+    .delete('/DeletePortfolio',auth,portfolio.DELETE)
+
+    
+
+module.exports = router
