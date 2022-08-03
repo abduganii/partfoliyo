@@ -20,7 +20,7 @@ module.exports = {
     },
     DELETE: async (req, res) => {
         try {
-            const { id } = req.body
+            const {id}= req.params
             res.send(await contactUsModel.findByIdAndRemove(id))
         } catch (error) {
             console.log(error)

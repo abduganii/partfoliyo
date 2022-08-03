@@ -20,6 +20,7 @@ module.exports = {
     },
     PUT: async(req,res)=>{
         try {
+            const { id } = req.params
             const { title } = req.body
             res.send(await portfoliocategoriesModel.findByIdAndUpdate(id,{title}))
         } catch (error) {
@@ -28,7 +29,7 @@ module.exports = {
     },
     DELETE: async (req, res) => {
         try {
-            const { id } = req.body
+            const { id } = req.params
             res.send(await portfoliocategoriesModel.findByIdAndRemove(id))
         } catch (error) {
             console.log(error)

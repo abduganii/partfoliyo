@@ -20,7 +20,8 @@ module.exports = {
     },
     PUT: async(req,res)=>{
         try {
-            const { id,img,name,text } = req.body
+            const {id} = req.params
+            const {img,name,text } = req.body
             res.send(await servicesModel.findByIdAndUpdate(id,{img,name,text}))
         } catch (error) {
             console.log(error.message)
@@ -28,7 +29,7 @@ module.exports = {
     },
     DELETE: async (req, res) => {
         try {
-            const { id } = req.body
+            const { id } = req.params
             res.send(await servicesModel.findByIdAndRemove(id))
         } catch (error) {
             console.log(error)

@@ -26,7 +26,8 @@ module.exports = {
     },
     PUT: async(req,res)=>{
         try {
-            const {  img,link,categorieId } = req.body
+            const { id } = req.params
+            const {img,link,categorieId } = req.body
             res.send(await portfoliocModel.findByIdAndUpdate(id,{ img,link,categorieId}))
         } catch (error) {
             console.log(error.message)
@@ -34,7 +35,7 @@ module.exports = {
     },
     DELETE: async (req, res) => {
         try {
-            const { id } = req.body
+            const { id } = req.params
             res.send(await portfoliocModel.findByIdAndRemove(id))
         } catch (error) {
             console.log(error)

@@ -17,32 +17,32 @@ router
     //services
     .get('/services',services.GET)
     .post('/newService',auth,services.POST)
-    .put('/updateService',auth,services.PUT)
-    .delete('/deleteService',auth,services.DELETE)
+    .put('/updateService/:id',auth,services.PUT)
+    .delete('/deleteService/:id',auth,services.DELETE)
     //ourTeam 
     .get('/ourTeam',ourTeam.GET)
     .post('/newTeamMember',auth,ourTeam.POST)
-    .put('/updateTeamMember',auth,ourTeam.PUT)
-    .delete('/deleteTeamMember',auth,ourTeam.DELETE)
+    .put('/updateTeamMember/:id',auth,ourTeam.PUT)
+    .delete('/deleteTeamMember/:id',auth,ourTeam.DELETE)
     //contactUs
     .get("/allMessage",contactUs.GET)
     .post("/newMessage",contactUs.POST)
-    .delete("/deleteMessage", auth, contactUs.DELETE)
+    .delete("/deleteMessage/:id", auth, contactUs.DELETE)
     //partners
     .get('/partners', partners.GET)
     .post('/newpartners',auth, partners.POST)
-    .put('/updatepartners',auth, partners.PUT)
-    .delete('/deletepartners',auth, partners.DELETE)
+    .put('/updatepartners/:id',auth, partners.PUT)
+    .delete('/deletepartners/:id',auth, partners.DELETE)
     //portfolioCategories
     .get('/portfoliocategories',portfoliocategories.GET)
     .post('/newPortfoliocategories',auth, portfoliocategories.POST)
-    .put('/updatePortfoliocategories',auth, portfoliocategories.PUT)
-    .delete('/deletePortfoliocategories',auth, portfoliocategories.DELETE)
+    .put('/updatePortfoliocategories/:id',auth, portfoliocategories.PUT)
+    .delete('/deletePortfoliocategories/:id',auth, portfoliocategories.DELETE)
     //portfolio
     .get('/portfolio',portfolio.GET)
     .post('/newPortfolio',auth,portfolio.POST)
-    .put('/updatePortfolio',auth,portfolio.PUT)
-    .delete('/DeletePortfolio',auth,portfolio.DELETE)
+    .put('/updatePortfolio/:id',auth,portfolio.PUT)
+    .delete('/DeletePortfolio/:id',auth,portfolio.DELETE)
 
     
 
