@@ -11,7 +11,7 @@ const servicesSchema = mongoose.Schema({
     },
     text: {
         type: String,
-        require:true
+        required:true
     },
     createdAt: {
         type: Date,

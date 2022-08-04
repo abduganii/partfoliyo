@@ -7,6 +7,7 @@ const contactUs = require('./contactUs/contactUs')
 const portfoliocategories = require('./portfoliocategories/ortfoliocategories')
 const partners = require('./partners/partners')
 const portfolio = require('./portfolio/portfolio')
+const ourPlus = require("./ourPlus/ourPlus")
 
 const login = require('./login/login')
 const auth = require('../meddlewares/auth')
@@ -43,7 +44,8 @@ router
     .post('/newPortfolio',auth,portfolio.POST)
     .put('/updatePortfolio/:id',auth,portfolio.PUT)
     .delete('/DeletePortfolio/:id',auth,portfolio.DELETE)
-
+    //ourPlus 
+    .get('/ourPlus',ourPlus.GET)
     
 
 module.exports = router

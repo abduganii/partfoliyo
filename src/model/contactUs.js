@@ -7,11 +7,11 @@ const contactUsSchema = mongoose.Schema({
     },
     phoneNumber: {
         type: String,
-        require:true
+        required: true
     },
     text: {
         type: String,
-        require:true 
+        required: true 
     },
     createdAt: {
         type: Date,
