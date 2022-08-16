@@ -1,7 +1,6 @@
 const { verifyuser } = require("../lib/jwt")
 const adminModel = require('../model/admin')
 
-
 module.exports =  async (req, res, next) => {
     try {
         const admin = await adminModel.find()

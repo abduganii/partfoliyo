@@ -11,39 +11,40 @@ const ourPlus = require("./ourPlus/ourPlus")
 
 const login = require('./login/login')
 const auth = require('../meddlewares/auth')
+const uploadImg = require('../meddlewares/multer')
 
 router
     //login 
     .post('/login', login)
     //services
     .get('/services',services.GET)
-    .post('/newService',auth,services.POST)
-    .put('/updateService/:id',auth,services.PUT)
-    .delete('/deleteService/:id',auth,services.DELETE)
+    .post('/newService/:lang',auth,uploadImg.array("images"),services.POST)
+    .put('/updateService/:lang',auth,uploadImg.array("images"),services.PUT)
+    .delete('/deleteService/:lang',auth,services.DELETE)
     //ourTeam 
     .get('/ourTeam',ourTeam.GET)
-    .post('/newTeamMember',auth,ourTeam.POST)
-    .put('/updateTeamMember/:id',auth,ourTeam.PUT)
-    .delete('/deleteTeamMember/:id',auth,ourTeam.DELETE)
+    .post('/newTeamMember/:lang',auth,uploadImg.array("images"),ourTeam.POST)
+    .put('/updateTeamMember/:lang',auth,uploadImg.array("images"),ourTeam.PUT)
+    .delete('/deleteTeamMember/:lang',auth,ourTeam.DELETE)
     //contactUs
     .get("/allMessage",contactUs.GET)
     .post("/newMessage",contactUs.POST)
-    .delete("/deleteMessage/:id", auth, contactUs.DELETE)
+    .delete("/deleteMessage", auth, contactUs.DELETE)
     //partners
     .get('/partners', partners.GET)
-    .post('/newpartners',auth, partners.POST)
-    .put('/updatepartners/:id',auth, partners.PUT)
-    .delete('/deletepartners/:id',auth, partners.DELETE)
+    .post('/newpartners',auth,uploadImg.array("images"), partners.POST)
+    .put('/updatepartners',auth,uploadImg.array("images"), partners.PUT)
+    .delete('/deletepartners',auth, partners.DELETE)
     //portfolioCategories
     .get('/portfoliocategories',portfoliocategories.GET)
     .post('/newPortfoliocategories',auth, portfoliocategories.POST)
-    .put('/updatePortfoliocategories/:id',auth, portfoliocategories.PUT)
-    .delete('/deletePortfoliocategories/:id',auth, portfoliocategories.DELETE)
+    .put('/updatePortfoliocategories',auth, portfoliocategories.PUT)
+    .delete('/deletePortfoliocategories',auth, portfoliocategories.DELETE)
     //portfolio
     .get('/portfolio',portfolio.GET)
-    .post('/newPortfolio',auth,portfolio.POST)
-    .put('/updatePortfolio/:id',auth,portfolio.PUT)
-    .delete('/DeletePortfolio/:id',auth,portfolio.DELETE)
+    .post('/newPortfolio',auth,uploadImg.array("images"),portfolio.POST)
+    .put('/updatePortfolio',auth,uploadImg.array("images"),portfolio.PUT)
+    .delete('/DeletePortfolio',auth,portfolio.DELETE)
     //ourPlus 
     .get('/ourPlus',ourPlus.GET)
     

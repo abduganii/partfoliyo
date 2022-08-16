@@ -21,7 +21,18 @@ module.exports = {
             } else {
                 const newcontactUsModel = new contactUsModel({ name,phoneNumber,text})
                 await newcontactUsModel.save()
-                res.send(newcontactUsModel)
+
+                if (newcontactUsModel) {
+                    res.send({
+                       status: 200,
+                       message: 'new message'
+                    });
+                 } else {
+                    res.send({
+                       status: 500,
+                       message: 'message dont created'
+                    });
+                 }
             }
         } catch (error) {
             console.log(error)
@@ -29,8 +40,21 @@ module.exports = {
     },
     DELETE: async (req, res) => {
         try {
-            const {id}= req.params
-            res.send(await contactUsModel.findByIdAndRemove(id))
+            const { id } = req.body
+            
+            await contactUsModel.findByIdAndRemove(id)
+
+            if (contactUsModel) {
+                res.send({
+                   status: 200,
+                   message: 'deleted message'
+                });
+             } else {
+                res.send({
+                   status: 500,
+                   message: 'message dont deleted'
+                });
+             }
         } catch (error) {
             console.log(error)
             
