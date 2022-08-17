@@ -4,7 +4,7 @@ const connection = {
 }
 
 const SECRET_KEY = "NO_SECRET_KEY"
-const BACKEND_URL = 'https://portfolionaf.herokuapp.com/public/img'
+const BACKEND_URL = 'https://portfolionaf.herokuapp.com/public/images'
 
 module.exports = {
     connection,
