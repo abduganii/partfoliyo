@@ -27,7 +27,7 @@ router
     .put('/updateTeamMember/:lang',auth,uploadImg.array("images"),ourTeam.PUT)
     .delete('/deleteTeamMember/:lang',auth,ourTeam.DELETE)
     //contactUs
-    .get("/allMessage",contactUs.GET)
+    .get("/allMessage",auth,contactUs.GET)
     .post("/newMessage",contactUs.POST)
     .delete("/deleteMessage", auth, contactUs.DELETE)
     //partners
